@@ -13,7 +13,6 @@ class HashTable {
 
   constructor(numBuckets = 4) {
     this.data = new Array(numBuckets).fill(null);
-
     this.count = 0;
     this.capacity = numBuckets;
     //console.log(this.data);
@@ -21,11 +20,13 @@ class HashTable {
   }
 
   hash(key) {
-    // fill this in
+    let sha = sha256(key);
+    let eightDig = sha.slice(0, 8);
+    return parseInt(eightDig, 16);
   }
 
   hashMod(key) {
-    // fill this in
+    return this.hash(key) % this.data.length;
   }
 
   insert(key, value) {
