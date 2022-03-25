@@ -30,7 +30,18 @@ class HashTable {
   }
 
   insert(key, value) {
-    // fill this in
+    let index = this.hashMod(key);
+    let keyPair = new KeyValuePair(key, value);
+    if(this.data[index]){
+      keyPair.next = this.data[index];
+      this.data[index] = keyPair;
+    }
+    else{
+      this.data[index] = keyPair;
+    }
+
+    //console.log(this.data);
+    this.count++;
   }
 
 }
