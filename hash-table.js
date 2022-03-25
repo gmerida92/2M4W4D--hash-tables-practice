@@ -12,7 +12,12 @@ class KeyValuePair {
 class HashTable {
 
   constructor(numBuckets = 4) {
-    // fill this in
+    this.data = new Array(numBuckets).fill(null);
+
+    this.count = 0;
+    this.capacity = numBuckets;
+    //console.log(this.data);
+
   }
 
   hash(key) {
